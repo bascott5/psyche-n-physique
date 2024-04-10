@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: beige;
+    margin: 100px 0px;
+}
+
+h1 {
+    margin: 25px auto 100px auto;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 100px;
+    overflow: hidden;
+}
+
+h2 {
+    margin: 25px auto 25px auto;
+    width: 75%;
+    font-weight: bold;
+    font-size: 50px;
+
+}
+
+p {
+    margin: 25px auto 50px auto;
+    width: 75%;
+    font-size: large;
+}
+
+ol > li {
+    margin: 10px auto 0px auto;
+    width: 70%;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+ul > li {
+    margin: 10px auto 0px auto;
+    width: 70%;
+    list-style-type: disc;
+    list-style-position: inside;
+}
