@@ -1,21 +1,29 @@
 "use client";
-import { useState } from "react";
-import { useMDXComponents } from "@mdx-js/react";
+import { useEffect, useState } from "react";
 
 const NavMenu = ({ children }) => {
     const [open, isOpen] = useState(false);
     const toggle = () => isOpen(!open);
-    const mdx = useMDXComponents();
+
+    const [ids, setIds] = useState([]);
+    useEffect(() => {
+        const ele = document.getElementsByTagName("h2");
+        let eles = new Array(ele.length)
+        for (let i = 0; i < ele.length - 1; i++) {
+            eles[i] = ele.item(i).id
+        }
+
+        setIds([...eles]);
+    }, []);
 
     return (
         <>
             <button onClick={toggle}>Open!</button>
-            <nav style={{ display: open ? "block" : "none" }} onMouseOver={toggle} onMouseOut={toggle}>
-                {Object.entries(mdx).keys(val => (
-                    // TODO: check if mdx.h2 without termnary operator
-                    <a href={`#${val[1]}`}>{ val[0] }</a>
+            <div style={{ display: open ? "block" : "none" }}>
+                {ids && ids.map && ids.map(id => (
+                    <a href={`#${id}`}>{ id }</a>
                 ))}
-            </nav>
+            </div>
             { children }
         </>
     );
