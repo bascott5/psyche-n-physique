@@ -2,9 +2,6 @@
 import { useEffect, useState } from "react";
 
 const NavMenu = ({ children }) => {
-    const [open, isOpen] = useState(false);
-    const toggle = () => isOpen(!open);
-
     const [ids, setIds] = useState([]);
     useEffect(() => {
         const ele = document.getElementsByTagName("h2");
@@ -18,10 +15,9 @@ const NavMenu = ({ children }) => {
 
     return (
         <>
-            <button onClick={toggle}>Open!</button>
-            <div style={{ display: open ? "block" : "none" }}>
+            <div className="fixed mx-25% w-25% left-25% top-25%">
                 {ids && ids.map && ids.map(id => (
-                    <a href={`#${id}`}>{ id }</a>
+                    <a className="w-10% mx-25% left-25% block" href={`#${id}`}>{ id }</a>
                 ))}
             </div>
             { children }
