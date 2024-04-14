@@ -14,14 +14,30 @@ const NavMenu = ({ children }) => {
     }, []);
 
     return (
-        <>
-            <div className="fixed mx-25% w-25% left-25% top-25%">
-                {ids && ids.map && ids.map(id => (
-                    <a className="w-10% mx-25% left-25% block" href={`#${id}`}>{ id }</a>
-                ))}
+        <div className="flex basis-100% flex-col flex-1 flex-wrap">
+            <div className="fixed h-100px top-0 left-0 bottom-0 bg-amber-100">
+                <ul>
+                    <a className="block" href={`#user-content-what-is-this-game`}><li className="list-disk">What is this game?</li></a>
+                    <a className="block" href={`#user-content-checks`}><li className="list-disk">Checks</li></a>
+                    <a className="block" href={`#user-content-challenges`}><li className="list-disk">Challenges</li></a>
+                    <a className="block" href={`#user-content-psyche`}><li className="list-disk">Psyche</li></a>
+                    <a className="block" href={`#user-content-physique`}><li className="list-disk">Physique</li></a>
+                    <a className="block" href={`#user-content-body-and-mind`}><li className="list-disk">Body and Mind</li></a>
+                    <a className="block" href={`#user-content-attributes`}><li className="list-disk">Attributes</li></a>
+                    <a className="block" href={`#user-content-abilities`}><li className="list-disk">Abilities</li></a>
+                    <a className="block" href={`#user-content-skills`}><li className="list-disk">Skills</li></a>
+                    <a className="block" href={`#user-content-inventory`}><li className="list-disk">Inventory</li></a>
+                    <a className="block" href={`#user-content-death`}><li className="list-disk">Death</li></a>
+                    <a className="block" href={`#user-content-optional-rule-humanoids`}><li className="list-disk">Optional Rule: Humanoids</li></a>
+                    <a className="block" href={`#user-content-character-creation`}><li className="list-disk">Character Creation</li></a>
+                    <a className="block" href={`#user-content-for-the-gm`}><li className="list-disk">For the GM</li></a>
+                    <a className="block" href={`#user-content-challenge-creation`}><li className="list-disk">Challenge Creation</li></a>
+                    <a className="block" href={`#user-content-skill-list`}><li className="list-disk">Skill List</li></a>
+                    <a className="block" href={`#user-content-ability-list`}><li className="list-disk">Ability List</li></a>
+                </ul>
             </div>
-            { children }
-        </>
+            <div className="h-100px">{ children }</div>
+        </div>
     );
 }
 
