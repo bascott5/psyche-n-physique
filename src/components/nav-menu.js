@@ -16,7 +16,7 @@ const NavMenu = ({ children }) => {
     // have a border around the right side that is only 60% across the y-axis of screen at all times
     return (
         <div className="flex basis-100% flex-col flex-1 flex-wrap">
-            <div className="bg-neutral-100 fixed h-100px top-0 left-0 bottom-0 border-r-2 border-grey">
+            <div className="bg-neutral-100 fixed h-100px top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey">
                 <ul className="relative top-10">
                     <a className="block" href={`#user-content-what-is-this-game`}><li className="list-disk">What is this game?</li></a>
                     <a className="block" href={`#user-content-checks`}><li className="list-disk">Checks</li></a>
