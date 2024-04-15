@@ -10,17 +10,18 @@ body {
 }
 
 h1 {
-    margin: 25px 8% 100px auto;
-    width: 65%;
+    margin-top: 25px;
+    margin-bottom: 100px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 150px;
+    text-align: center;
     overflow: hidden;
 }
 
 h2 {
-    margin: 25px 8% 25px auto;
-    width: 65%;
+    margin-top: 25px;
+    margin-bottom: 25px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 75px;
@@ -28,16 +29,16 @@ h2 {
 }
 
 p {
-    margin: 25px 8% 50px auto;
-    width: 65%;
+    margin-top: 25px;
+    margin-top: 50px;
     font-size: x-large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-indent: 50px;
 }
 
 ol > li {
-    margin: 10px 8% 0px auto;
-    width: 65%;
+    margin-top: 10px;
+    margin-bottom: 0px;
     list-style-type: decimal;
     list-style-position: inside;
     font-size: x-large;
@@ -45,18 +46,39 @@ ol > li {
 }
 
 ul > li {
-    margin: 10px 8% 0px auto;
-    width: 65%;
+    margin-top: 10px;
+    margin-bottom: 0px;
     list-style-type: disc;
     list-style-position: inside;
     font-size: x-large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
+a:hover {
+    color: rgb(105, 105, 105);
+}
+
 a {
     padding: 5px 50px 0px 75px;
     list-style-type: decimal;
-    font-weight: bold;
     font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
+}
+
+blockquote {
+    background-color: lightgray;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    padding: 25px;
+}
+
+blockquote > h2 {
+    margin: 0px auto 25px auto;
+    width: 80%;
+    font-size: xx-large;
+}
+
+blockquote > p {
+    margin: 0 auto;
+    width: 80%;
 }

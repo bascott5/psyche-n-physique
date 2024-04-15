@@ -1,22 +1,18 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { useState, useEffect } from "react";
 
 const NavMenu = ({ children }) => {
-    const [ids, setIds] = useState([]);
+    const [open, isOpen] = useState(false);
+    const window = useWindowSize();
+
     useEffect(() => {
-        const ele = document.getElementsByTagName("h2");
-        let eles = new Array(ele.length)
-        for (let i = 0; i < ele.length - 1; i++) {
-            eles[i] = ele.item(i).id
-        }
+        isOpen(window.width >= 1500 ? true : false);
+    }, [window])
 
-        setIds([...eles]);
-    }, []);
-
-    // have a border around the right side that is only 60% across the y-axis of screen at all times
     return (
         <div className="flex basis-100% flex-col flex-1 flex-wrap">
-            <div className="bg-neutral-100 fixed h-100px top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey">
+            <div style={{ visibility: open ? "visible" : "hidden" }} className="bg-neutral-100 fixed h-100px top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey">
                 <ul className="relative top-10">
                     <a className="block" href={`#user-content-what-is-this-game`}><li className="list-disk">What is this game?</li></a>
                     <a className="block" href={`#user-content-checks`}><li className="list-disk">Checks</li></a>
@@ -37,7 +33,7 @@ const NavMenu = ({ children }) => {
                     <a className="block" href={`#user-content-ability-list`}><li className="list-disk">Ability List</li></a>
                 </ul>
             </div>
-            <div className="h-100px">{ children }</div>
+            <div style={open ? { marginRight: "8%", marginLeft: "auto", width: "65%" } : { marginRight: "auto", marginLeft: "auto", width: "75%" }} className="h-100px">{ children }</div>
         </div>
     );
 }
