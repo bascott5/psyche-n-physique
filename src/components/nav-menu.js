@@ -1,22 +1,18 @@
 "use client";
 import { useWindowSize } from "@uidotdev/usehooks";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import Nav from "../images/nav.svg"
+import nav from "../static/nav.svg"
 
 const NavMenu = ({ children }) => {
     const window = useWindowSize();
-    const [open, isOpen] = useState(true);
+    const [open, isOpen] = useState(false);
     const toggle = () => isOpen(!open);
-
-    useEffect(() => {
-        isOpen(window.width >= 1500 ? true : false);
-    }, [window])
 
     return (
         <div className="flex basis-100% flex-col flex-1 flex-wrap">
-            <Image src={ Nav } style={{ zIndex: "1" }} className="fixed top-5 left-5" width={30} height={30} onClick={toggle} />
-            <div style={{ visibility: open ? "visible" : "hidden" }} className="bg-neutral-100 fixed top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey">
+            <Image src={ nav } style={{ zIndex: "1" }} className="fixed top-5 left-5" width={30} height={30} onClick={toggle} loading="eager" />
+            <div style={{ visibility: open ? "visible" : "hidden" }} className="bg-neutral-100 fixed top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey shadow-lg">
                 <ul className="relative top-14">
                     <a className="block" href={`#what-is-this-game`}><li>What is this game?</li></a>
                     <a className="block" href={`#checks`}><li>Checks</li></a>
