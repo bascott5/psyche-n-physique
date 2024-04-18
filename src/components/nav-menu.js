@@ -7,11 +7,10 @@ import nav from "../static/nav.svg"
 const NavMenu = ({ children }) => {
     const window = useWindowSize();
     const [open, isOpen] = useState(false);
-    const toggle = () => isOpen(!open);
 
     return (
         <div className="flex basis-100% flex-col flex-1 flex-wrap">
-            <Image src={ nav } style={{ zIndex: "1" }} className="fixed top-5 left-5" width={30} height={30} onClick={toggle} loading="eager" />
+            <Image src={ nav } alt="nav" style={{ zIndex: "1" }} className="fixed top-5 left-5 hover:cursor-pointer" width={30} height={30} onClick={() => isOpen(!open)} loading="eager" />
             <div style={{ visibility: open ? "visible" : "hidden" }} className="bg-neutral-100 fixed top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey shadow-lg">
                 <ul className="relative top-14">
                     <a className="block" href={`#what-is-this-game`}><li>What is this game?</li></a>
