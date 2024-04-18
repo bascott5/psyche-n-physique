@@ -2,10 +2,9 @@
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Nav from "../images/nav.svg"
 
 const NavMenu = ({ children }) => {
-    // TODO: insert table of contents into markdown itself, using a list to order everything and create a container
-
     const window = useWindowSize();
     const [open, isOpen] = useState(true);
     const toggle = () => isOpen(!open);
@@ -16,9 +15,9 @@ const NavMenu = ({ children }) => {
 
     return (
         <div className="flex basis-100% flex-col flex-1 flex-wrap">
-            <Image width={25} height={25} style={{ zIndex: "1" }} className="fixed top-5 left-5" onClick={toggle} />
+            <Image src={ Nav } style={{ zIndex: "1" }} className="fixed top-5 left-5" width={30} height={30} onClick={toggle} />
             <div style={{ visibility: open ? "visible" : "hidden" }} className="bg-neutral-100 fixed top-0 left-0 bottom-0 overflow-y-scroll border-r-2 border-grey">
-                <ul className="relative top-10">
+                <ul className="relative top-14">
                     <a className="block" href={`#what-is-this-game`}><li>What is this game?</li></a>
                     <a className="block" href={`#checks`}><li>Checks</li></a>
                     <a className="block" href={`#challenges`}><li>Challenges</li></a>
@@ -38,7 +37,7 @@ const NavMenu = ({ children }) => {
                     <a className="block" href={`#ability-list`}><li>Ability List</li></a>
                 </ul>
             </div>
-            <div style={open ? { marginRight: "8%", marginLeft: "auto", width: "65%" } : { marginRight: "auto", marginLeft: "auto", width: "75%" }} className="h-100px">{ children }</div>
+            <div style={open && window.width >= 1500 ? { marginRight: "7%", marginLeft: "auto", width: "65%" } : { marginRight: "auto", marginLeft: "auto", width: "75%" }} className="h-100px">{ children }</div>
         </div>
     );
 }
